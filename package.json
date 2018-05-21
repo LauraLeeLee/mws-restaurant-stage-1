@@ -1,0 +1,36 @@
+{
+  "name": "mws-restaurant-stage-1",
+  "version": "1.0.0",
+  "description": "Udacity project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "run-script-os",
+    "start:win32": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser \"C:\\Program Files\\Firefox Developer Edition\\firefox.exe\"",
+    "start:darwin:linux": "browser-sync start --server --files '**/*.css, **/*.html, **/*.js, !node_modules/**/*' --directory --port 7777 --browser 'Firefox Developer Edition'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauraLeeLee/mws-restaurant-stage-1.git"
+  },
+  "author": "Laura Logan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LauraLeeLee/mws-restaurant-stage-1/issues"
+  },
+  "homepage": "https://github.com/LauraLeeLee/mws-restaurant-stage-1#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-cache": "^1.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.5",
+    "jshint": "^2.9.5"
+  }
+}
