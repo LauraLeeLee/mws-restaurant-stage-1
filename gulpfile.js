@@ -15,13 +15,28 @@ var useref = require('gulp-useref');
 var rename = require('gulp-rename');
 
 
+function browserSyncInit(baseDir, files, browser) {
+browser = browser === undefined ? 'Firefox Developer Edition' : browser;
+
+browserSync.instance = browserSync.init(files, {
+startPath: '/index.html',
+server: {
+baseDir: baseDir,
+middleware: proxyMiddleware
+},
+browser: browser
+});
+
+}
 
 gulp.task('browserSync', function() {
   browserSync.init({
-    server: {
-      baseDir: 'app',
-    },
-    browser: "Firefox Developer Edition"
+    options: {
+        server: {
+        baseDir: 'app',
+      },
+      browser: "/Applications/Firefox Developer Edition/firefox.exe"
+    }
   })
 });
 
@@ -78,19 +93,6 @@ gulp.task('useref', function(){
    .pipe(gulp.dest('dist'))
 });
 
-// // Watch scss AND html files, doing different things with each.
-// gulp.task('serve', function () {
-//
-//     // Serve files from the root of this project
-//     browserSync.init({
-//         server: {
-//             baseDir: "./"
-//         }
-//     });
-//
-//     gulp.watch("*.html").on("change", reload);
-// });
-
 // Watch Files For Changes
 gulp.task('watch', ['browserSync', 'sass', 'watch'], function() {
     gulp.watch('js/*.js', ['lint', 'scripts']);
@@ -99,17 +101,6 @@ gulp.task('watch', ['browserSync', 'sass', 'watch'], function() {
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
 });
-
-
-// Static server
-// gulp.task('browser-sync', function() {
-//     browserSync.init({
-//         server: {
-//             baseDir: "./"
-//         },
-//
-//     });
-// });
 
 // Default Task
 gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
