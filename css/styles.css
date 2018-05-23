@@ -216,6 +216,7 @@ nav h1 a {
 
 .inside #maincontent {
 	display: grid;
+	grid-area: main;
 	grid-template-columns: 1fr 1fr;
 	grid-template-areas: "locale map "
 											 "review map ";
@@ -322,6 +323,16 @@ nav h1 a {
 /* media queries */
 
 @media (max-width 700px) {
+
+	/* .inside .wrapper {
+		min-height: 100vh;
+		display: grid;
+		grid-template-areas: "header header header"
+												 "main main main"
+											   "footer footer footer";
+		grid-template-rows: 80px 1fr 77px;
+	} */
+
 	.inside #maincontent {
 		grid-template-areas: "map map map"
 												 "locale locale locale"
