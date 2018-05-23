@@ -217,9 +217,9 @@ nav h1 a {
 .inside #maincontent {
 	display: grid;
 	grid-area: main;
-	grid-template-columns: 1fr 1fr;
-	grid-template-areas: "locale map "
-											 "review map ";
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: "locale map map"
+											 "reviews map map";
 	grid-template-rows: 1fr 1fr;
 }
 
@@ -237,6 +237,7 @@ nav h1 a {
   top: 80px;
   width: 50%; */
 	grid-area: map;
+
 }
 .inside #map {
   background-color: #ccc;

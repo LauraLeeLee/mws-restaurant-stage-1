@@ -1,4 +1,4 @@
-To view app:   https://lauraleelee.github.io/mws-restaurant-stage-1/.
+To view app: [Restaurant Review App-Udacity project] ( https://lauraleelee.github.io/mws-restaurant-stage-1/)
 
 # Mobile Web Specialist Certification Course
 ---
