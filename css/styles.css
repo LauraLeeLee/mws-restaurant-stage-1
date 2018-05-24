@@ -220,14 +220,15 @@ nav h1 a {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-areas: "locale map map"
 											 "reviews map map";
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 }
 
 .inside header {
   /* position: fixed; */
   /* top: 0;
   width: 100%;
-  z-index: 1000; */
+   */
+	 z-index: 1000;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
@@ -322,26 +323,18 @@ nav h1 a {
 }
 
 /* media queries */
-
-@media (max-width 700px) {
-
-	/* .inside .wrapper {
-		min-height: 100vh;
-		display: grid;
-		grid-template-areas: "header header header"
-												 "main main main"
-											   "footer footer footer";
-		grid-template-rows: 80px 1fr 77px;
-	} */
-
+/* for restaurant.html */
+@media (max-width: 1700px) {
 	.inside #maincontent {
-		grid-template-areas: "map map map"
-												 "locale locale locale"
-												 "reviews reviews reviews";
-		grid-template-rows: 1fr 50px 50px;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-areas: "map map map map"
+												 "locale locale reviews reviews"
+												 "locale locale reviews reviews";
+		grid-template-rows: 1fr 100px 100px;
 	}
 }
 
+/* for index.html */
 @media (max-width: 1000px) {
 	.filter-options {
 		justify-items: center;
