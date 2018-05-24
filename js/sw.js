@@ -5,6 +5,9 @@ self.addEventListener('install', function(event) {
     caches.open(appCacheName).then(function(cache) {
       return cache.addAll([
         '/skeleton',
+        '/index.html',
+        '/restaurant.html',
+        '/data/restaurants.json',
         'js/dbhelper.js',
         'js/main.js',
         'js/restaurant_info.js',
@@ -19,7 +22,6 @@ self.addEventListener('install', function(event) {
         'img/9.jpg',
         'img/10.jpg',
         'css/styles.css'
-        '//normalize-css.googlecode.com/svn/trunk/normalize.css'
       ]);
     })
   );
