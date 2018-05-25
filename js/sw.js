@@ -1,5 +1,8 @@
+
+/*cache name*/
 var appCacheName = 'restaurant-review-v1';
 
+/*cache the static info when install*/
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(appCacheName).then(function(cache) {
@@ -27,6 +30,7 @@ self.addEventListener('install', function(event) {
   );
 });
 
+/*delte any old versions of the cache*/
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheVersions) {
@@ -41,6 +45,8 @@ self.addEventListener('activate', function(event) {
   );
 });
 
+
+/*if the requested info is in cache, serve it */
 self.addEventListener('fetch', function(event) {
   var requestUrl = new URL(event.request.url);
 
