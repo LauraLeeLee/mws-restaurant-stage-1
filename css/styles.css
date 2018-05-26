@@ -220,16 +220,19 @@ nav h1 a {
 
 .inside .wrapper {
 	display: grid;
+	grid-template-areas: "header header header"
+											 "main main main"
+											 "footer footer footer";
 	/* grid-template-columns: 1fr; */
 }
 
 .inside #maincontent {
 	display: grid;
 	grid-area: main;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-areas: "locale map map"
-											 "reviews map map";
-	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "map map"
+											 "locale reviews";
+	/* grid-template-rows: auto; */
 }
 
 .inside header {
@@ -237,6 +240,7 @@ nav h1 a {
   /* top: 0;
   width: 100%;
    */
+	 grid-area: header;
 	 z-index: 1000;
 }
 .inside #map-container {
@@ -258,6 +262,12 @@ nav h1 a {
   /* bottom: 0;
   position: absolute; */
   /* width: 50%; */
+	grid-area: footer;
+}
+
+.inside #restaurant-container {
+	grid-area: locale;
+	/* grid-row: auto; */
 }
 #restaurant-name {
   color: #f18200;
@@ -289,9 +299,6 @@ nav h1 a {
 	width: 90%;
 }
 
-#restaurant-container {
-		grid-area: locale;
-}
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
@@ -301,6 +308,10 @@ nav h1 a {
 #reviews-container {
   padding: 30px 40px 80px;
 	grid-area: reviews;
+	grid-template-columns: 1fr;
+  grid-row: auto;
+	grid-template-areas: "review-h2"
+											 "rev-list";
 }
 #reviews-container h2 {
   color: #f58500;
@@ -308,10 +319,12 @@ nav h1 a {
   font-weight: 300;
   letter-spacing: -1px;
   padding-bottom: 1pt;
+	grid-area: review-h2;
 }
 #reviews-list {
   margin: 0;
   padding: 0;
+	grid-area: rev-list;
 }
 #reviews-list li {
   background-color: #fff;
@@ -333,15 +346,13 @@ nav h1 a {
 
 /* media queries */
 /* for restaurant.html */
-@media (max-width: 1700px) {
+/* @media (max-width: 1700px) {
 	.inside #maincontent {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-areas: "map map map map"
-												 "locale locale reviews reviews"
-												 "locale locale reviews reviews";
-		grid-template-rows: 1fr 100px 100px;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: "locale map map"
+												 "reviews map map";
 	}
-}
+} */
 
 /* for index.html */
 @media (max-width: 1000px) {
