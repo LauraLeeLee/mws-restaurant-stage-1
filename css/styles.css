@@ -224,15 +224,16 @@ nav h1 a {
 											 "main main main"
 											 "footer footer footer";
 	/* grid-template-columns: 1fr; */
+	/* grid-template-rows: auto auto auto; */
 }
 
 .inside #maincontent {
 	display: grid;
 	grid-area: main;
-	grid-template-columns: 1fr 1fr;
+	/* grid-template-columns: 1fr 1fr 1fr; */
 	grid-template-areas: "map map"
 											 "locale reviews";
-	/* grid-template-rows: auto; */
+	/* grid-template-rows: auto auto; */
 }
 
 .inside header {
@@ -251,6 +252,8 @@ nav h1 a {
   top: 80px;
   width: 50%; */
 	grid-area: map;
+	/* grid-column: 1fr; */
+	/* grid-row: auto; */
 
 }
 .inside #map {
@@ -265,7 +268,7 @@ nav h1 a {
 	grid-area: footer;
 }
 
-.inside #restaurant-container {
+#restaurant-container {
 	grid-area: locale;
 	/* grid-row: auto; */
 }
@@ -308,10 +311,10 @@ nav h1 a {
 #reviews-container {
   padding: 30px 40px 80px;
 	grid-area: reviews;
-	grid-template-columns: 1fr;
-  grid-row: auto;
-	grid-template-areas: "review-h2"
-											 "rev-list";
+	/* grid-template-columns: 1fr; */
+  /* grid-row: auto; */
+	/* grid-template-areas: "review-h2"
+											 "rev-list"; */
 }
 #reviews-container h2 {
   color: #f58500;
@@ -355,11 +358,11 @@ nav h1 a {
 } */
 
 /* for index.html */
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
 	.filter-options {
 		justify-items: center;
 	}
-}
+} */
 
 @media (max-width: 700px) {
 	#restaurants-list {
