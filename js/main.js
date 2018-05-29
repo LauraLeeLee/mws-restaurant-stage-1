@@ -6,15 +6,15 @@ var markers = []
 
 /* Register Service Worker*/
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', function() {
-//     navigator.serviceWorker.register('sw.js');
-//   }).then(function(reg){
-//     console.log('SW registration succeeded');
-//   }).catch(function(error) {
-//     console.log('SW registration failed', error);
-//   });
-// }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js');
+  }).then(function(reg){
+    console.log('SW registration succeeded');
+  }).catch(function(error) {
+    console.log('SW registration failed', error);
+  });
+}
 
 
 /**

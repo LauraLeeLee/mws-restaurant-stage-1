@@ -9,8 +9,90 @@ window.initMap = () => {
     if (error) { // Got an error!
       console.error(error);
     } else {
+      var styles = [
+        {
+       "featureType": "road.highway",
+       "elementType": "geometry.fill",
+       "stylers": [
+           {
+               "color": "#f2ff00"
+           }
+       ]
+   },
+   {
+       "featureType": "road.highway",
+       "elementType": "geometry.stroke",
+       "stylers": [
+           {
+               "color": "#ff0000"
+           }
+       ]
+   },
+   {
+       "featureType": "road.highway.controlled_access",
+       "elementType": "geometry.fill",
+       "stylers": [
+           {
+               "color": "#f8df00"
+           }
+       ]
+   },
+   {
+       "featureType": "road.highway.controlled_access",
+       "elementType": "geometry.stroke",
+       "stylers": [
+           {
+               "color": "#ff0000"
+           }
+       ]
+   },
+   {
+       "featureType": "road.arterial",
+       "elementType": "geometry.fill",
+       "stylers": [
+           {
+               "color": "#428c3e"
+           }
+       ]
+   },
+   {
+       "featureType": "road.local",
+       "elementType": "geometry.fill",
+       "stylers": [
+           {
+               "visibility": "on"
+           },
+           {
+               "color": "#52904f"
+           }
+       ]
+   },
+   {
+       "featureType": "road.local",
+       "elementType": "geometry.stroke",
+       "stylers": [
+           {
+               "visibility": "simplified"
+           },
+           {
+               "hue": "#ff5600"
+           }
+       ]
+   },
+   {
+       "featureType": "water",
+       "elementType": "geometry.fill",
+       "stylers": [
+           {
+               "color": "#454e9f"
+           }
+       ]
+   }
+]
+
       self.map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
+        // styles: styles,
         center: restaurant.latlng,
         scrollwheel: false
       });
@@ -58,6 +140,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = DBHelper.altTextForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
