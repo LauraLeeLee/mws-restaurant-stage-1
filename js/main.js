@@ -8,11 +8,13 @@ var markers = []
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('sw.js');
-  }).then(function(reg){
-    console.log('SW registration succeeded');
-  }).catch(function(error) {
-    console.log('SW registration failed', error);
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('SW registration successful');
+    }, function(error) {
+      // registration failed :(
+      console.log('SW registration failed: ', error);
+    });
   });
 }
 
