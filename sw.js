@@ -1,5 +1,6 @@
+
 /*cache name*/
-var appCacheName = 'restaurant-review-v2';
+var appCacheName = 'restaurant-review-v1';
 
 /*cache the static info when install*/
 self.addEventListener('install', function(event) {
@@ -29,7 +30,7 @@ self.addEventListener('install', function(event) {
   );
 });
 
-/*delete any old versions of the cache*/
+/*delte any old versions of the cache*/
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheVersions) {
