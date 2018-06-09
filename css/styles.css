@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
+:root {
+	--focus-border-color: #ff6600;
+}
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -81,6 +84,11 @@ nav {
 nav h1 {
   margin: auto;
 }
+
+nav h1 a:focus {
+	outline: none;
+	border: 3px solid var(--focus-border-color);
+}
 nav h1 a {
   color: #fff;
   font-size: 14pt;
@@ -89,12 +97,12 @@ nav h1 a {
   text-transform: uppercase;
 }
 #breadcrumb {
-    padding: 10px 40px 16px;
+    padding: 0 20px 0;
     list-style: none;
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: calc(50% - 100px);
 }
 
 /* Display list items side by side */
@@ -163,6 +171,11 @@ nav h1 a {
   width: 200px;
 }
 
+.filter-options select:focus {
+	outline: none;
+	border: 5px solid var(--focus-border-color);
+}
+
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
   background-color: #f3f3f3;
@@ -220,6 +233,15 @@ nav h1 a {
   text-decoration: none;
   text-transform: uppercase;
 }
+
+#restaurants-list li a:focus {
+	outline: none;
+	border: 5px solid var(--focus-border-color);
+}
+
+/* .rest-name:focus {
+	border: 5px solid var(--focus-border-color);
+} */
 
 /* ====================== Restaurant Details ====================== */
 

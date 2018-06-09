@@ -132,17 +132,22 @@ fetchRestaurantFromURL = (callback) => {
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
+  name.tabIndex = 0;
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
+  address.tabIndex = 0;
+  address.setAttribute('aria-label', 'address');
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = DBHelper.altTextForRestaurant(restaurant);
+  image.tabIndex = 0;
 
   const cuisine = document.getElementById('restaurant-cuisine');
+  cuisine.tabIndex = 0;
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -162,13 +167,17 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     const row = document.createElement('tr');
 
     const day = document.createElement('td');
+    // day.tabIndex = 0;
     day.innerHTML = key;
     row.appendChild(day);
 
     const time = document.createElement('td');
+    // time.tabIndex = 0;
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
 
+    hours.tabIndex = 0;
+    hours.setAttribute('aria-label', 'business-hours');
     hours.appendChild(row);
   }
 }
@@ -179,11 +188,13 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
+  title.tabIndex = 0;
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
+    noReviews.tabIndex = 0;
     noReviews.innerHTML = 'No reviews yet!';
     container.appendChild(noReviews);
     return;
@@ -201,18 +212,22 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
+  name.tabIndex = 0;
   name.innerHTML = review.name;
   li.appendChild(name);
 
   const date = document.createElement('p');
+  date.tabIndex = 0;
   date.innerHTML = review.date;
   li.appendChild(date);
 
   const rating = document.createElement('p');
+  rating.tabIndex = 0;
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
   const comments = document.createElement('p');
+  comments.tabIndex = 0;
   comments.innerHTML = review.comments;
   li.appendChild(comments);
 
@@ -226,6 +241,8 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
+  breadcrumb.tabIndex = 0;
+  breadcrumb.setAttribute('aria-label', restaurant.name);
   breadcrumb.appendChild(li);
 }
 

@@ -49,6 +49,8 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
+    option.setAttribute('role', 'option');
+    // option.setAttribute('aria-label', neighborhood);
     option.value = neighborhood;
     select.append(option);
   });
@@ -95,6 +97,7 @@ window.initMap = () => {
     center: loc,
     scrollwheel: false
   });
+  self.map.title = 'Google Map';
   updateRestaurants();
 }
 
@@ -157,22 +160,34 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = DBHelper.altTextForRestaurant(restaurant);
+  image.tabIndex = 0;
   li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
+  // name.classList.add("rest-name");
+  // name.setAttribute("style", "outline: none;");
+  // name.setAttribute("style", "border: 5px solid var(--focus-border-color)");
+  // name.focus();
+  name.setAttribute('aria-label', restaurant.name);
+  name.tabIndex = 0;
   li.append(name);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
+  neighborhood.setAttribute('aria-label', 'neighborhood' + restaurant.neighborhood);
+  neighborhood.tabIndex = 0;
   li.append(neighborhood);
 
   const address = document.createElement('p');
   address.innerHTML = restaurant.address;
+  address.tabIndex = 0;
+  address.setAttribute('aria-label', 'address' + restaurant.address);
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', 'view restaurant details');
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 

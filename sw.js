@@ -1,6 +1,6 @@
 
 /*cache name*/
-var appCacheName = 'restaurant-review-v1';
+var appCacheName = 'restaurant-review-v3';
 
 /*cache the static info when install*/
 self.addEventListener('install', function(event) {
