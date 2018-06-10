@@ -137,7 +137,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const address = document.getElementById('restaurant-address');
   address.tabIndex = 0;
-  address.setAttribute('aria-label', 'address');
+  address.setAttribute('aria-label', 'address' + restaurant.address);
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
@@ -148,6 +148,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.tabIndex = 0;
+  cuisine.setAttribute('aria-label', 'cuisine' + restaurant.cuisine_type);
   cuisine.innerHTML = restaurant.cuisine_type;
 
   // fill operating hours
@@ -177,7 +178,6 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     row.appendChild(time);
 
     hours.tabIndex = 0;
-    hours.setAttribute('aria-label', 'business-hours');
     hours.appendChild(row);
   }
 }
@@ -211,6 +211,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.tabIndex = 0;
+  li.setAttribute('aria-label', 'review');
   const name = document.createElement('p');
   name.tabIndex = 0;
   name.innerHTML = review.name;

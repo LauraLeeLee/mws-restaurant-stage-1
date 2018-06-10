@@ -49,7 +49,7 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
-    option.setAttribute('role', 'option');
+    // option.setAttribute('role', 'option');
     // option.setAttribute('aria-label', neighborhood);
     option.value = neighborhood;
     select.append(option);
