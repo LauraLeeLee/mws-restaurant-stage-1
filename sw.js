@@ -1,6 +1,5 @@
-
 /*cache name*/
-var appCacheName = 'restaurant-review-v3';
+var appCacheName = 'restaurant-review-v1';
 
 /*cache the static info when install*/
 self.addEventListener('install', function(event) {
@@ -30,42 +29,22 @@ self.addEventListener('install', function(event) {
   );
 });
 
-/*delte any old versions of the cache*/
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-    caches.keys().then(function(cacheVersions) {
-      return Promise.all(
-        cacheVersions.filter(function(cacheVersion) {
-          return cacheVersion.startsWith('restaurant-') && cacheVersion != appCacheName;
-        }).map(function(cacheVersion) {
-          return caches.delete(cacheVersion);
-        })
-      );
-    })
-  );
-});
-
 
 /*if the requested info is in cache, serve it */
 self.addEventListener('fetch', function(event) {
-  var requestUrl = new URL(event.request.url);
+  // var requestUrl = new URL(event.request.url);
+  //
+  // if(requestUrl.origin === location.origin) {
+  //   if(requestUrl.pathname === '/') {
+  //     event.respondWith(caches.match('/skeleton'));
+  //     return;
+  //   }
+  // }
 
-  if(requestUrl.origin === location.origin) {
-    if(requestUrl.pathname === '/') {
-      event.respondWith(caches.match('/skeleton'));
-      return;
-    }
-  }
 
   event.respondWith(
     caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
+      return response || fetch(event.request)
     })
-  );
-});
-
-self.addEventListener('message', function(event) {
-  if(event.data.action === 'skipWaiting') {
-    self.skipWaiting();
-  }
+  )
 });
