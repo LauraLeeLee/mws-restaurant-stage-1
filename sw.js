@@ -1,3 +1,4 @@
+/*service worker javascript followed from Udacity service worker lesson*/
 /*cache name*/
 var appCacheName = 'restaurant-review-v1';
 
