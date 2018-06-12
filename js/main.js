@@ -9,7 +9,7 @@ var markers = []
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Registration was successful
+      // Registration successful
       console.log('SW registration successful');
     }, function(error) {
       // registration failed :(
@@ -49,8 +49,6 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
   neighborhoods.forEach(neighborhood => {
     const option = document.createElement('option');
     option.innerHTML = neighborhood;
-    // option.setAttribute('role', 'option');
-    // option.setAttribute('aria-label', neighborhood);
     option.value = neighborhood;
     select.append(option);
   });
@@ -165,10 +163,6 @@ createRestaurantHTML = (restaurant) => {
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
-  // name.classList.add("rest-name");
-  // name.setAttribute("style", "outline: none;");
-  // name.setAttribute("style", "border: 5px solid var(--focus-border-color)");
-  // name.focus();
   name.setAttribute('aria-label', restaurant.name);
   name.tabIndex = 0;
   li.append(name);
