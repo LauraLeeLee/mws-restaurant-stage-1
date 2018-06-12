@@ -29,22 +29,22 @@ self.addEventListener('install', function(event) {
   );
 });
 
-
-/*if the requested info is in cache, serve it */
-self.addEventListener('fetch', function(event) {
-  // var requestUrl = new URL(event.request.url);
-  //
-  // if(requestUrl.origin === location.origin) {
-  //   if(requestUrl.pathname === '/') {
-  //     event.respondWith(caches.match('/skeleton'));
-  //     return;
-  //   }
-  // }
-
-
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request)
-    })
-  )
-});
+// self.addEventListener('activate', function (event) {
+//   event.waitUntil(caches.keys().then(function (cacheNames) {
+//     return Promise.all(cacheNames.filter(function (cacheName) {
+//       return cacheName.startsWith('restaurant-') && cacheName != appCacheName;
+//     }).map(function (cacheName) {
+//       return cache.delete(cacheName);
+//     }));
+//   }));
+// });
+//
+// /*if the requested info is in cache, serve it */
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.match(event.request).then(function(response) {
+//       if(response) return response;
+//        return fetch(event.request);
+//     })
+//   );
+// });
